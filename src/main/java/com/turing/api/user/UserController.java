@@ -15,7 +15,6 @@ import java.util.*;
 public class UserController {
 
     private final UserService service;
-    private final UserService checkoutWAWAHYUN;
 
     @PostMapping("/login")
     public Map<String, ?> login1 (@RequestBody Map<?,?> paramap){
