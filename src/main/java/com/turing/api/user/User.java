@@ -9,6 +9,7 @@ import lombok.*;
 @ToString(exclude = {"id"})
 @Entity(name="users")
 public class User {
+    //유저수정했음~!~!~!~!!!!!
 
     @Id
     @Column(name = "id", nullable = false)
