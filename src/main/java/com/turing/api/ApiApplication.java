@@ -9,12 +9,6 @@ public class ApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
 
-<<<<<<< HEAD
-
-		System.out.println("제발");
-=======
-		System.out.println("배광호");
->>>>>>> dev-bkh
 	}
 
 }
