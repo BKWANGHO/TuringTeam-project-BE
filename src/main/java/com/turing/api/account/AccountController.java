@@ -67,6 +67,4 @@ public class AccountController {
     public Map<String, ?> accountList() throws SQLException {
         return accountService.findAll();
     }
-    "올나ㅣ러다ㅓ래;ㅑㄴ오ㅓ"
 }
-해커입니다
