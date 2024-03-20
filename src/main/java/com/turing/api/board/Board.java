@@ -9,6 +9,7 @@ public class Board {
     private long id;
     private String boardName;
     private String boardType;
+    private String boardName2;
 
     @Builder(builderMethodName = "builder")
     public Board(long id, String boardName, String boardType) {
