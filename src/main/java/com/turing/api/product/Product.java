@@ -23,10 +23,12 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="product_id")
     private Long id;
+
     String name ;
 
     @ManyToOne
-    @JoinColumn(name="id",referencedColumnName = "id")
+    @JoinColumn(name="order_id",referencedColumnName = "order_id")
     private Order order;
 }
