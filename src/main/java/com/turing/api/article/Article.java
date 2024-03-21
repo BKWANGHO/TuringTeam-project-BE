@@ -15,13 +15,13 @@ public class Article {
     private String registerDate;
 
     @ManyToOne
-    @JoinColumn(name = "board_id", referencedColumnName = "board_id")
+    @JoinColumn(name = "board_id", referencedColumnName = "id")
     private Board board;
 
 
     @Builder(builderMethodName = "builder")
     public Article(Long id, String title, String content, String writer,String registerDate) {
-        this.id = id;
+        this.article_id = id;
         this.title = title;
         this.content = content;
         this.writer = writer;
