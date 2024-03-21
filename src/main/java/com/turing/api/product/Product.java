@@ -28,7 +28,6 @@ public class Product {
 
     String name ;
 
-    @ManyToOne
-    @JoinColumn(name="order_id",referencedColumnName = "order_id")
-    private Order order;
+    @OneToMany(mappedBy = "product")
+    private List<Order> orders;
 }
