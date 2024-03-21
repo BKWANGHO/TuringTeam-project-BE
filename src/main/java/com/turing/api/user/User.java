@@ -6,6 +6,7 @@ import lombok.*;
 
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     @Getter
+    @Setter
     @ToString(exclude = {"id"})
 @Entity(name = "Users")
 public class User {
@@ -36,24 +37,4 @@ public class User {
             this.weight = weight;
         }
 
-        @Override
-        public String toString() {
-            return "User{" +
-                    "username='" + username + '\'' +
-                    ", password='" + password + '\'' +
-                    ", name='" + name + '\'' +
-                    ", phoneNumber=" + phone +
-                    ", address='" + addressId + '\'' +
-                    ", job='" + job + '\'' +
-                    ", height=" + height +
-                    ", weight=" + weight +
-                    '}'+ '\n';
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
-
-
-
-}
+    }
