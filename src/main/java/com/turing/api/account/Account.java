@@ -1,5 +1,7 @@
 package com.turing.api.account;
 
+import com.turing.api.board.Board;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,6 +16,8 @@ public class Account {
     private Double balance;                         //잔고
     private LocalDateTime transactionDate;          //거래일자
     private String transation;
+    @OneToMany(mappedBy = "board")
+    private Board board;
 
     @Builder(builderMethodName = "builder")
     public Account(long id, String accountNumber,

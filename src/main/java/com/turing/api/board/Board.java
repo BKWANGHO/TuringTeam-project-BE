@@ -1,5 +1,9 @@
 package com.turing.api.board;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
+import org.hibernate.grammars.hql.HqlParser;
+
+import java.util.Map;
 
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -9,6 +13,9 @@ public class Board {
     private long id;
     private String boardName;
     private String boardType;
+
+    @ManyToOne(targetEntity = )
+    private Map<Integer,Builder> article;
 
     @Builder(builderMethodName = "builder")
     public Board(long id, String boardName, String boardType) {
