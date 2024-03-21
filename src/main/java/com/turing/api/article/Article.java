@@ -20,9 +20,9 @@ public class Article {
     private String writer;
     private String registerDate;
 
-//    @ManyToOne
-//    @JoinColumn(name = "board_id", referencedColumnName = "board_id")
-//    private Board board;
+    @ManyToOne
+    @JoinColumn(name = "board_id", referencedColumnName = "board_id")
+    private Board board;
 
 
     @Builder(builderMethodName = "builder")
