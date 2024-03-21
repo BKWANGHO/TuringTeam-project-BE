@@ -15,6 +15,5 @@ public class Board {
         this.id = id;
         this.boardName = boardName;
         this.boardType = boardType;
-"백광호"
     }
 }
