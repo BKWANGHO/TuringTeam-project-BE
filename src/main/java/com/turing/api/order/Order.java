@@ -1,25 +1,23 @@
 package com.turing.api.order;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.AccessLevel;
+import com.turing.api.product.Product;
+import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-@Entity(name="orders")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+import java.time.LocalDateTime;
+
+@Entity(name = "order")
 @Getter
-@ToString(exclude = {"id"})
 public class Order {
     @Id
+    @Column(name = "id", updatable = false, unique = true, nullable = false)
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "orderDate")
+    private LocalDateTime orderDate;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Product product;
+
 }

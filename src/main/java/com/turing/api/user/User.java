@@ -58,8 +58,6 @@ public class User {
                     '}'+ '\n';
         }
 
-
-
     public void setPassword(String password) {
         this.password = password;
     }
