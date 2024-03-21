@@ -35,7 +35,7 @@ public class AccountController {
         return accountService.deposit(Account.builder()
                 .accountNumber(sc.next())
                 .balance(sc.nextDouble())
-                        .transactionDate(LocalDateTime.now())
+                .transactionDate(LocalDateTime.now())
                 .build()
         );
     }
