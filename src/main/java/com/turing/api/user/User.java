@@ -1,14 +1,20 @@
 package com.turing.api.user;
 
+import com.turing.api.order.Order;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 
+@Entity(name="users")
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     @Getter
     @ToString(exclude = {"id"})
 
 public class User {
-
+        @Id
+        @Column(name = "id", nullable = false)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String username;
         private String password;
@@ -32,6 +38,10 @@ public class User {
             this.height = height;
             this.weight = weight;
         }
+
+        @OneToMany(mappedBy = "user")
+        @JoinColumn(name="id",referencedColumnName = "user_id")
+        private List<Order> orders;
 
         @Override
         public String toString() {
