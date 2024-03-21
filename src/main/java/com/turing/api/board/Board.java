@@ -10,7 +10,9 @@ import java.util.Map;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
+
 public class Board {
+
 
     private long id;
     private String boardName;
