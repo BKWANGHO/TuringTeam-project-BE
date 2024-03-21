@@ -1,12 +1,9 @@
 package com.turing.api.board;
-import java.util.List;
 
+import java.util.List;
 import jakarta.persistence.*;
 import com.turing.api.article.Article;
-
 import lombok.*;
-import java.util.Map;
-
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -24,7 +21,6 @@ public class Board {
 
 
     @OneToMany(mappedBy = "board")
-    @JoinColumn(name="article_id",referencedColumnName = "article_id")
     private List<Article> articles;
 
     @Builder(builderMethodName = "builder")
@@ -33,7 +29,6 @@ public class Board {
         this.boardName = boardName;
         this.boardType = boardType;
     }
-
 
 
 }

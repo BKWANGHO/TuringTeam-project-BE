@@ -12,10 +12,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ArticleServiceImpl extends AbstractService implements ArticleService{
-
     private ArticleRepository repository;
-
-
     @Override
     public Map<String, ?> save(Object o) throws SQLException {
         return null;
