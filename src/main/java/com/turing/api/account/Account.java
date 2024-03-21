@@ -16,7 +16,7 @@ public class Account {
     private Double balance;                         //잔고
     private LocalDateTime transactionDate;          //거래일자
     private String transation;
-    @OneToMany(mappedBy = "board")
+
     private Board board;
 
     @Builder(builderMethodName = "builder")

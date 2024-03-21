@@ -14,7 +14,6 @@ public class Board {
     private String boardName;
     private String boardType;
 
-    @ManyToOne(targetEntity = )
     private Map<Integer,Builder> article;
 
     @Builder(builderMethodName = "builder")

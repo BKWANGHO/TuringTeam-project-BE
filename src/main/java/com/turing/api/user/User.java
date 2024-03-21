@@ -12,7 +12,7 @@ import lombok.*;
 public class User {
         @Id
         @Column(name = "id", nullable = false)
-        @GeneratedValue(strategy= GenerationType.AUTO)
+        @GeneratedValue(strategy= GenerationType.IDENTITY)//1씩 자동 증가
         private Long id;
         private String username;
         private String password;
