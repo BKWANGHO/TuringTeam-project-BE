@@ -5,6 +5,7 @@ import com.turing.api.enums.Messenger;
 import jakarta.persistence.EntityManager;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -17,6 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class UserRepository {
+public interface UserRepository extends JpaRepository<User,Long> {
 
 }
