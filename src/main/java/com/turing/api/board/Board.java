@@ -1,31 +1,27 @@
 package com.turing.api.board;
+
 import java.util.List;
-
-import org.hibernate.annotations.ManyToAny;
-
+import jakarta.persistence.*;
 import com.turing.api.article.Article;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.*;
-
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
-@Entity
+@Entity(name = "boards")
 public class Board {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "board_id")
     private long id;
+
     private String boardName;
     private String boardType;
 
+
     @OneToMany(mappedBy = "board")
-    @JoinColumn(name="ref_id",referencedColumnName = "id")
-    private List<Article> article;
+    private List<Article> articles;
 
     @Builder(builderMethodName = "builder")
     public Board(long id, String boardName, String boardType) {
@@ -33,7 +29,6 @@ public class Board {
         this.boardName = boardName;
         this.boardType = boardType;
     }
-
 
 
 }

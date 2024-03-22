@@ -1,19 +1,31 @@
 package com.turing.api.product;
 
-import jakarta.persistence.Column;
+import com.turing.api.order.Order;
+import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.util.List;
+
+
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@ToString(exclude = {"id"})
+@Entity(name = "products")
 public class Product {
+
     @Id
-    @Column(name = "productId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="product_id")
     private Long id;
 
-    @OneToMany
-    private String productName ;
+    String name ;
 
-    
-
-    
+    @OneToMany(mappedBy = "product")
+    private List<Order> orders;
 
 }
