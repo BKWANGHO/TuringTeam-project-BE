@@ -1,6 +1,19 @@
 package com.turing.api.product;
 
-public class Product {
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
-    String name ;
+public class Product {
+    @Id
+    @Column(name = "productId")
+    private Long id;
+
+    @OneToMany
+    private String productName ;
+
+    
+
+    
+
 }
