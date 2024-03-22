@@ -22,7 +22,7 @@ public class User {
     private String username;
     private String password;
     private String name;
-    private String phoneNumber;
+    private String phone;
     private Long addressId;
     private String job;
     private double height;
@@ -30,13 +30,13 @@ public class User {
 
     @Builder(builderMethodName = "builder")
     public User(long id, String username, String password,
-                String name, String phoneNumber, String job, double height,
+                String name, String phone, String job, double height,
                 double weight) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.job = job;
         this.height = height;
         this.weight = weight;
@@ -51,7 +51,7 @@ public class User {
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", phone=" + phone +
                 ", address='" + addressId + '\'' +
                 ", job='" + job + '\'' +
                 ", height=" + height +
