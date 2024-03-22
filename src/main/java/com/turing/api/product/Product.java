@@ -1,11 +1,8 @@
 package com.turing.api.product;
 
-
 import com.turing.api.order.Order;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -30,4 +27,5 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private List<Order> orders;
+
 }
