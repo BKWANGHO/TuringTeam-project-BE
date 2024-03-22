@@ -1,5 +1,7 @@
 package com.turing.api.account;
 
+import com.turing.api.board.Board;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -9,11 +11,13 @@ import java.time.LocalDateTime;
 @ToString(exclude = {"id"})
 public class Account {
     private Long id;
-    private String accountNumber;                   //계좌번호
-    private String accountHolder;                   //예금주
-    private Double balance;                         //잔고
-    private LocalDateTime transactionDate;          //거래일자
+    private String accountNumber;
+    private String accountHolder;
+    private Double balance;
+    private LocalDateTime transactionDate;
     private String transation;
+
+    private Board board;
 
     @Builder(builderMethodName = "builder")
     public Account(long id, String accountNumber,
