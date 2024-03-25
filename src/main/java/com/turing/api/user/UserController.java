@@ -3,6 +3,7 @@ package com.turing.api.user;
 
 import com.turing.api.enums.Messenger;
 import com.turing.api.proxy.TypeProxy;
+import jakarta.persistence.Id;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,21 @@ public class UserController {
 
     @PostMapping(path = "/api/login")
     public Map<String, ?> login(@RequestBody Map<?, ?> paramap) {
+        Map<String, Messenger> response = new HashMap<>();
         String username = (String) paramap.get("username");
-        System.out.println("리퀘스트" + username);
-        Map<String, String> response = new HashMap<>();
-        response.put("로그인 성공", "아이디 : " + username);
+        User optUser= repository.findByUsername(username).orElse(null);
+        Long id = optUser.getId();
+        System.out.println("ID IS" + id);
+        String password = optUser.getPassword();
+        System.out.println("password is" + password);
+        if(optUser == null){
+            response.put("message",Messenger.FAIL);
+        }else if(!optUser.getPassword().equals(password)){
+            response.put("message",Messenger.WRONG_PASSWORD);
+        }else {
+            response.put("message",Messenger.SUCCESS);
+        }
+        System.out.println("User is" + null);
         return response;
     }
 
