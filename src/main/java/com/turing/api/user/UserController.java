@@ -18,7 +18,7 @@ public class UserController {
     private final UserService service;
     private final UserRepository repository;
 
-    @PostMapping("/api/login")
+    @PostMapping(path = "/api/login")
     public Map<String, ?> login(@RequestBody Map<?, ?> paramap) {
         Map<String, Messenger> response = new HashMap<>();
 
@@ -26,7 +26,7 @@ public class UserController {
 
         User user = repository.findByUsername(username).orElse(null);
 
-         response.put("로그인성공여부" , user==null ?
+         response.put("messege" , user==null ?
                  Messenger.FAIL : user.getPassword().equals(paramap.get("password")) ?
                  Messenger.SUCCESS : Messenger.WRONG_PASSWORD);
 
@@ -49,7 +49,7 @@ public class UserController {
 
         System.out.println("DB에 저장된 User 정보 : " + user);
         Map<String, Messenger> map = new HashMap<>();
-        map.put("result", Messenger.SUCCESS);
+        map.put("messege", Messenger.SUCCESS);
 
         return map;
     }

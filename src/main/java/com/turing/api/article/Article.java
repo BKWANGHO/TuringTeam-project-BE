@@ -14,7 +14,6 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "article_id")
     private Long id;
-
     private String title;
     private String content;
     private String writer;
