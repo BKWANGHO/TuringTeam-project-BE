@@ -1,10 +1,13 @@
 package com.turing.api.article;
 import com.turing.api.board.Board;
+import com.turing.api.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@Builder
+@AllArgsConstructor
 @ToString(exclude = {"id"})
 @Entity(name = "articles")
 public class Article {
@@ -16,7 +19,9 @@ public class Article {
     private Long id;
     private String title;
     private String content;
-    private String writer;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User writer;
     private String registerDate;
 
     @ManyToOne
@@ -24,12 +29,4 @@ public class Article {
     private Board board;
 
 
-    @Builder(builderMethodName = "builder")
-    public Article(Long id, String title, String content, String writer,String registerDate) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.writer = writer;
-        this.registerDate = registerDate;
-    }
 }

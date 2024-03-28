@@ -1,6 +1,7 @@
 package com.turing.api.user;
 
 
+import com.turing.api.article.Article;
 import com.turing.api.order.Order;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,6 +11,8 @@ import java.util.List;
 @Entity(name="users")
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     @Getter
+@Builder
+@AllArgsConstructor
     @Setter
     @ToString(exclude = {"id"})
 
@@ -28,22 +31,14 @@ public class User {
     private double height;
     private double weight;
 
-    @Builder(builderMethodName = "builder")
-    public User(long id, String username, String password,
-                String name, String phone, String job, double height,
-                double weight) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.phone = phone;
-        this.job = job;
-        this.height = height;
-        this.weight = weight;
-    }
+
 
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
+
+    @OneToMany(mappedBy = "writer")
+    private List<Article> articles;
+
 
     @Override
     public String toString() {
