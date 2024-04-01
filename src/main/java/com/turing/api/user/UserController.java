@@ -54,6 +54,19 @@ public class UserController {
         return map;
     }
 
+    @GetMapping("/api/all-users")
+    public Map<?,?>findAll(){
+        Map<String,Object> map = new HashMap<>();
+        List<User> ls = repository.findAll();
+        map.put("messege",Messenger.SUCCESS);
+        map.put("result",ls);
+        System.out.println("리스트 몇개?  "+ls.size());
+        return map;
+    }
+
+
+
+
 
     public Map<String, ?> findUserBYId(@RequestBody Map<?, ?> paramap) {
         Map<String, String> response = new HashMap<>();

@@ -12,7 +12,6 @@ import lombok.*;
 @Entity(name = "articles")
 public class Article {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "article_id")
