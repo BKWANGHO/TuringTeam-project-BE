@@ -2,19 +2,18 @@ package com.turing.api.user;
 
 
 import com.turing.api.article.Article;
-import com.turing.api.order.Order;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
 
-@Entity(name="users")
-    @NoArgsConstructor(access = AccessLevel.PROTECTED)
-    @Getter
+@Entity(name = "users")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Builder
 @AllArgsConstructor
-    @Setter
-    @ToString(exclude = {"id"})
+@Setter
+@ToString(exclude = {"id"})
 
 public class User {
     @Id
@@ -32,9 +31,6 @@ public class User {
     private double weight;
 
 
-
-    @OneToMany(mappedBy = "user")
-    private List<Order> orders;
 
     @OneToMany(mappedBy = "writer")
     private List<Article> articles;

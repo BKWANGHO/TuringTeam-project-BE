@@ -60,12 +60,8 @@ public class UserController {
         List<User> ls = repository.findAll();
         map.put("messege",Messenger.SUCCESS);
         map.put("result",ls);
-        System.out.println("리스트 몇개?  "+ls.size());
         return map;
     }
-
-
-
 
 
     public Map<String, ?> findUserBYId(@RequestBody Map<?, ?> paramap) {

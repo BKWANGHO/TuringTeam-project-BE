@@ -13,15 +13,19 @@ import lombok.*;
 public class Article {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "article_id")
     private Long id;
+
     private String title;
+
     private String content;
+
+    private String registerDate;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User writer;
-    private String registerDate;
 
     @ManyToOne
     @JoinColumn(name = "board_id", referencedColumnName = "board_id")
